@@ -6,6 +6,7 @@ const pathToFile = path.join(process.cwd(), 'dataBase', 'users.json');
 module.exports = {
     reader: async () => {
         const buffer = await fs.readFile(pathToFile);
+        if (!buffer.toString()) return [];
         return JSON.parse(buffer.toString());
     },
 
